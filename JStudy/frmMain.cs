@@ -48,7 +48,6 @@ namespace JStudy
 
             streamResposne.Close();
             streamRead.Close();
-            // Release the HttpWebResponse Resource.
             clientResposne.Close();
         }
     }
