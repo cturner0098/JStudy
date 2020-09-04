@@ -29,7 +29,7 @@ namespace JStudy
             string apiKey = "500ce2a7-c0b6-4361-b4fa-c74081b123ca";
             string authHeader = "Bearer " + apiKey;
             string apiEndpoint = "reviews";
-            HttpWebRequest client = (HttpWebRequest)WebRequest.Create("https://api.wanikani.com/v2/" + apiEndpoint);
+            HttpWebRequest client = (HttpWebRequest)WebRequest.Create("https://api.wanikani.com/v2/" + apiEndpoint + "/?=immediately_available_for_review");
             client.Headers["Authorization"] = authHeader;
             client.Headers["Wanikani-Revision"] = wanikaniRevision;
 
