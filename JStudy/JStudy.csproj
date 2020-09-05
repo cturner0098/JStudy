@@ -69,6 +69,8 @@
       <DependentUpon>frmWaniKani.cs</DependentUpon>
     </Compile>
     <Compile Include="WaniKani\Review.cs" />
+    <Compile Include="WaniKani\Subject.cs" />
+    <Compile Include="WaniKani\WaniKaniHelper.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

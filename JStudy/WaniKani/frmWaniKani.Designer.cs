@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.lblReviewsAvailable = new System.Windows.Forms.Label();
+            this.rtbSubjectIDs = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lblReviewsAvailable
@@ -40,11 +41,20 @@
             this.lblReviewsAvailable.TabIndex = 0;
             this.lblReviewsAvailable.Text = "Reviews Available: ";
             // 
+            // rtbSubjectIDs
+            // 
+            this.rtbSubjectIDs.Location = new System.Drawing.Point(12, 25);
+            this.rtbSubjectIDs.Name = "rtbSubjectIDs";
+            this.rtbSubjectIDs.Size = new System.Drawing.Size(776, 413);
+            this.rtbSubjectIDs.TabIndex = 1;
+            this.rtbSubjectIDs.Text = "";
+            // 
             // frmWaniKani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rtbSubjectIDs);
             this.Controls.Add(this.lblReviewsAvailable);
             this.Name = "frmWaniKani";
             this.Text = "WaniKani";
@@ -57,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblReviewsAvailable;
+        private System.Windows.Forms.RichTextBox rtbSubjectIDs;
     }
 }

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿// https://docs.api.wanikani.com/20170710/#create-a-review
+// https://docs.api.wanikani.com/20170710/#get-all-assignments
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,11 +25,30 @@ namespace JStudy.WaniKani
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("immediately_available_for_review", "");
             //parameters.Add("levels", "10");
-            var deserialized = JObject.Parse(Assignment.GetAllAssignments(parameters))
+            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
+            var availableReviews = assignments
                 .Root
                 .SelectToken("total_count")
                 .ToString();
-            lblReviewsAvailable.Text = deserialized;
+            lblReviewsAvailable.Text = availableReviews;
+
+            var availableSubjectIds =
+                from id in assignments["data"].Children()["data"]
+                select (int)id["subject_id"];
+
+            var subjectJoin = string.Join(",", availableSubjectIds);
+            parameters.Clear();
+            parameters.Add("ids", subjectJoin);
+            var subjects = JObject.Parse(Subject.GetAllSubjects(parameters));
+
+            var subjectKanji =
+                from character in subjects["data"].Children()["data"]
+                select (string)character["characters"];
+
+            for(int i = 0; i < availableSubjectIds.ToList().Count; i++)
+            {
+                rtbSubjectIDs.Text += availableSubjectIds.ToList()[i].ToString() + " - " + subjectKanji.ToList()[i].ToString() + "\n";
+            }
         }
     }
 }
