@@ -1,6 +1,6 @@
-﻿namespace JStudy
+﻿namespace JStudy.WaniKani
 {
-    partial class frmMain
+    partial class frmWaniKani
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnWaniKani = new System.Windows.Forms.Button();
+            this.lblReviewsAvailable = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnWaniKani
+            // lblReviewsAvailable
             // 
-            this.btnWaniKani.Location = new System.Drawing.Point(319, 59);
-            this.btnWaniKani.Name = "btnWaniKani";
-            this.btnWaniKani.Size = new System.Drawing.Size(75, 23);
-            this.btnWaniKani.TabIndex = 0;
-            this.btnWaniKani.Text = "WaniKani";
-            this.btnWaniKani.UseVisualStyleBackColor = true;
-            this.btnWaniKani.Click += new System.EventHandler(this.btnWaniKani_Click);
+            this.lblReviewsAvailable.AutoSize = true;
+            this.lblReviewsAvailable.Location = new System.Drawing.Point(12, 9);
+            this.lblReviewsAvailable.Name = "lblReviewsAvailable";
+            this.lblReviewsAvailable.Size = new System.Drawing.Size(100, 13);
+            this.lblReviewsAvailable.TabIndex = 0;
+            this.lblReviewsAvailable.Text = "Reviews Available: ";
             // 
-            // frmMain
+            // frmWaniKani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnWaniKani);
-            this.Name = "frmMain";
-            this.Text = "JLearn";
-            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Controls.Add(this.lblReviewsAvailable);
+            this.Name = "frmWaniKani";
+            this.Text = "WaniKani";
+            this.Load += new System.EventHandler(this.frmWaniKani_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnWaniKani;
+        private System.Windows.Forms.Label lblReviewsAvailable;
     }
 }
-

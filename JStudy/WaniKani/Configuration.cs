@@ -8,6 +8,6 @@ namespace JStudy.WaniKani
 {
     static class Configuration
     {
-
+        //public 
     }
 }

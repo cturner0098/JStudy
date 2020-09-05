@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JStudy.WaniKani
 {
-    class Assignments
+    class Review
     {
     }
 }
