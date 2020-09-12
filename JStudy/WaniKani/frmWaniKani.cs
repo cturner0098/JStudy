@@ -57,6 +57,7 @@ namespace JStudy.WaniKani
             txtReading.Text = "";
 
             btnShowAnswer.Enabled = false;
+            txtMeaning.Focus();
         }
 
         private async void btnSubmit_Click(object sender, EventArgs e)
