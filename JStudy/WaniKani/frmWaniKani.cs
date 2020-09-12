@@ -110,5 +110,15 @@ namespace JStudy.WaniKani
             txtMeaning.Text = subjectList[0].Meanings[0];
             txtReading.Text = subjectList[0].Readings[0];
         }
+
+        private void txtReading_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.GetCultureInfo("ja-JP"));
+        }
+
+        private void txtMeaning_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+        }
     }
 }

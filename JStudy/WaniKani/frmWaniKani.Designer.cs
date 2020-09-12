@@ -63,13 +63,16 @@
             this.txtMeaning.Name = "txtMeaning";
             this.txtMeaning.Size = new System.Drawing.Size(175, 20);
             this.txtMeaning.TabIndex = 2;
+            this.txtMeaning.Enter += new System.EventHandler(this.txtMeaning_Enter);
             // 
             // txtReading
             // 
+            this.txtReading.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.txtReading.Location = new System.Drawing.Point(23, 100);
             this.txtReading.Name = "txtReading";
             this.txtReading.Size = new System.Drawing.Size(175, 20);
             this.txtReading.TabIndex = 3;
+            this.txtReading.Enter += new System.EventHandler(this.txtReading_Enter);
             // 
             // btnSubmit
             // 
