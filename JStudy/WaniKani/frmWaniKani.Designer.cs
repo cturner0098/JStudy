@@ -49,10 +49,10 @@
             // lblSlug
             // 
             this.lblSlug.AutoSize = true;
-            this.lblSlug.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSlug.Font = new System.Drawing.Font("Meiryo", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSlug.Location = new System.Drawing.Point(12, 9);
             this.lblSlug.Name = "lblSlug";
-            this.lblSlug.Size = new System.Drawing.Size(186, 62);
+            this.lblSlug.Size = new System.Drawing.Size(184, 72);
             this.lblSlug.TabIndex = 1;
             this.lblSlug.Text = "lblSlug";
             this.lblSlug.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
