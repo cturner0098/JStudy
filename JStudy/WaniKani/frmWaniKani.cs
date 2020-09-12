@@ -1,6 +1,4 @@
-﻿// https://docs.api.wanikani.com/20170710/#create-a-review
-
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +34,7 @@ namespace JStudy.WaniKani
                 .Root
                 .SelectToken("total_count")
                 .ToString();
-            lblReviewsAvailable.Text += availableReviews;
+            lblReviews.Text += availableReviews;
 
             subjectList = Subject.BuildSubjectList();
 
@@ -46,6 +44,9 @@ namespace JStudy.WaniKani
 
         public void LoadNextSubject()
         {
+            int reviews = Convert.ToInt32(lblReviews.Text);
+            lblReviews.Text = (--reviews).ToString();
+
             subjectList.RemoveAt(0);
 
             lblSlug.Text = subjectList[0].Slug;
@@ -54,10 +55,13 @@ namespace JStudy.WaniKani
             incorrectReading = 0;
             txtMeaning.Text = "";
             txtReading.Text = "";
+
+            btnShowAnswer.Enabled = false;
         }
 
         private async void btnSubmit_Click(object sender, EventArgs e)
         {
+            // Check based on meaning
             bool correct = false;
             foreach(string meaning in subjectList[0].Meanings)
             {
@@ -74,6 +78,7 @@ namespace JStudy.WaniKani
             if (!correct)
                 incorrectMeaning++;
 
+            // Check based on reading
             foreach (string reading in subjectList[0].Readings)
             {
                 if (txtReading.Text.ToLower() == reading.ToLower())
@@ -94,7 +99,16 @@ namespace JStudy.WaniKani
             {
                 await Review.CreateReview(subjectList[0].Id, incorrectMeaning, incorrectReading);
                 LoadNextSubject();
+            } else
+            {
+                btnShowAnswer.Enabled = true;
             }
+        }
+
+        private void btnShowAnswer_Click(object sender, EventArgs e)
+        {
+            txtMeaning.Text = subjectList[0].Meanings[0];
+            txtReading.Text = subjectList[0].Readings[0];
         }
     }
 }

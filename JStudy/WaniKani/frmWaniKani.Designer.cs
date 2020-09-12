@@ -33,12 +33,14 @@
             this.txtMeaning = new System.Windows.Forms.TextBox();
             this.txtReading = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnShowAnswer = new System.Windows.Forms.Button();
+            this.lblReviews = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblReviewsAvailable
             // 
             this.lblReviewsAvailable.AutoSize = true;
-            this.lblReviewsAvailable.Location = new System.Drawing.Point(20, 152);
+            this.lblReviewsAvailable.Location = new System.Drawing.Point(20, 189);
             this.lblReviewsAvailable.Name = "lblReviewsAvailable";
             this.lblReviewsAvailable.Size = new System.Drawing.Size(135, 13);
             this.lblReviewsAvailable.TabIndex = 0;
@@ -79,11 +81,33 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // btnShowAnswer
+            // 
+            this.btnShowAnswer.Enabled = false;
+            this.btnShowAnswer.Location = new System.Drawing.Point(23, 155);
+            this.btnShowAnswer.Name = "btnShowAnswer";
+            this.btnShowAnswer.Size = new System.Drawing.Size(175, 23);
+            this.btnShowAnswer.TabIndex = 5;
+            this.btnShowAnswer.Text = "Show Answer";
+            this.btnShowAnswer.UseVisualStyleBackColor = true;
+            this.btnShowAnswer.Click += new System.EventHandler(this.btnShowAnswer_Click);
+            // 
+            // lblReviews
+            // 
+            this.lblReviews.AutoSize = true;
+            this.lblReviews.Location = new System.Drawing.Point(185, 189);
+            this.lblReviews.Name = "lblReviews";
+            this.lblReviews.Size = new System.Drawing.Size(13, 13);
+            this.lblReviews.TabIndex = 6;
+            this.lblReviews.Text = "0";
+            // 
             // frmWaniKani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(221, 176);
+            this.ClientSize = new System.Drawing.Size(221, 211);
+            this.Controls.Add(this.lblReviews);
+            this.Controls.Add(this.btnShowAnswer);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtReading);
             this.Controls.Add(this.txtMeaning);
@@ -91,6 +115,7 @@
             this.Controls.Add(this.lblReviewsAvailable);
             this.Name = "frmWaniKani";
             this.Text = "WaniKani";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmWaniKani_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,5 +129,7 @@
         private System.Windows.Forms.TextBox txtMeaning;
         private System.Windows.Forms.TextBox txtReading;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnShowAnswer;
+        private System.Windows.Forms.Label lblReviews;
     }
 }

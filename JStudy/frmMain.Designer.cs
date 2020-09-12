@@ -33,9 +33,9 @@
             // 
             // btnWaniKani
             // 
-            this.btnWaniKani.Location = new System.Drawing.Point(319, 59);
+            this.btnWaniKani.Location = new System.Drawing.Point(12, 12);
             this.btnWaniKani.Name = "btnWaniKani";
-            this.btnWaniKani.Size = new System.Drawing.Size(75, 23);
+            this.btnWaniKani.Size = new System.Drawing.Size(162, 23);
             this.btnWaniKani.TabIndex = 0;
             this.btnWaniKani.Text = "WaniKani";
             this.btnWaniKani.UseVisualStyleBackColor = true;
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(186, 45);
             this.Controls.Add(this.btnWaniKani);
             this.Name = "frmMain";
             this.Text = "JLearn";

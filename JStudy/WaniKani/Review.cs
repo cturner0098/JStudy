@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿// https://docs.api.wanikani.com/20170710/#create-a-review
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace JStudy.WaniKani
         public int incorrect_meaning_answers { get; set; }
         public int incorrect_reading_answers { get; set; }
         static string endPoint = "https://api.wanikani.com/v2/reviews";
+
         public static string GetAllReviews(Dictionary<string, string>? queryParameters = null)
         {
             return GetJsonData(endPoint, queryParameters);
