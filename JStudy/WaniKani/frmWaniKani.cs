@@ -46,7 +46,14 @@ namespace JStudy.WaniKani
 
         public void LoadNextSubject()
         {
+            subjectList.RemoveAt(0);
+
             lblSlug.Text = subjectList[0].Slug;
+
+            incorrectMeaning = 0;
+            incorrectReading = 0;
+            txtMeaning.Text = "";
+            txtReading.Text = "";
         }
 
         private async void btnSubmit_Click(object sender, EventArgs e)
@@ -86,13 +93,7 @@ namespace JStudy.WaniKani
             if (correct)
             {
                 await Review.CreateReview(subjectList[0].Id, incorrectMeaning, incorrectReading);
-                subjectList.RemoveAt(0);
                 LoadNextSubject();
-
-                incorrectMeaning = 0;
-                incorrectReading = 0;
-                txtMeaning.Text = "";
-                txtReading.Text = "";
             }
         }
     }
