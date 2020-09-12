@@ -1,9 +1,12 @@
 ﻿using JStudy.Utilities;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,6 +53,22 @@ namespace JStudy.WaniKani
             clientResposne.Close();
 
             return json;
+        }
+
+        public async static Task<string> PostJsonData(string endPoint, JObject obj)
+        {
+            var json = JsonConvert.SerializeObject(obj);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var url = endPoint;
+            using var client = new HttpClient();
+
+            client.DefaultRequestHeaders.Add("Authorization", authHeader);
+            client.DefaultRequestHeaders.Add("Wanikani-Revision", wanikaniRevision);
+
+            var response = await client.PostAsync(url, data);
+
+            return response.Content.ReadAsStringAsync().Result;
         }
     }
 }

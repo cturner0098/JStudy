@@ -1,4 +1,5 @@
-﻿using JStudy.Utilities;
+﻿// https://docs.api.wanikani.com/20170710/#get-all-assignments
+using JStudy.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
