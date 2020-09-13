@@ -93,6 +93,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmWaniKani";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmWaniKani_FormClosing);
             this.Load += new System.EventHandler(this.frmWaniKani_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

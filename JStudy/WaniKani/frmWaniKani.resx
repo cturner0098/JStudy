@@ -134,9 +134,6 @@
   <data name="txtReading.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 20</value>
   </data>
-  <data name="btnSubmit.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
   <data name="&gt;&gt;txtMeaning.Name" xml:space="preserve">
     <value>txtMeaning</value>
   </data>
@@ -161,9 +158,6 @@
   <data name="txtMeaning.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 20</value>
   </data>
-  <data name="btnShowAnswer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 23</value>
-  </data>
   <data name="lblReviewsAvailable.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 13</value>
   </data>
@@ -185,8 +179,8 @@
   <data name="btnSubmit.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 23</value>
   </data>
-  <data name="&gt;&gt;lblReviews.Name" xml:space="preserve">
-    <value>lblReviews</value>
+  <data name="&gt;&gt;btnShowAnswer.Name" xml:space="preserve">
+    <value>btnShowAnswer</value>
   </data>
   <data name="&gt;&gt;btnShowAnswer.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -203,10 +197,13 @@
   <data name="&gt;&gt;txtMeaning.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;lblReviews.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblSlug.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;btnSubmit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblReviews.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblReviewsAvailable.ZOrder" xml:space="preserve">
@@ -225,8 +222,11 @@
   <data name="&gt;&gt;txtReading.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnShowAnswer.Name" xml:space="preserve">
-    <value>btnShowAnswer</value>
+  <data name="&gt;&gt;lblSlug.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblReviewsAvailable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblReviews.Size" type="System.Drawing.Size, System.Drawing">
     <value>13, 13</value>
@@ -243,11 +243,11 @@
   <data name="lblSlug.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;txtMeaning.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="lblSlug.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 72</value>
+  </data>
+  <data name="&gt;&gt;lblReviews.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnShowAnswer.Text" xml:space="preserve">
     <value>Show Answer</value>
@@ -258,8 +258,8 @@
   <data name="&gt;&gt;txtReading.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtMeaning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSlug.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -285,8 +285,8 @@
   <data name="&gt;&gt;btnShowAnswer.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblReviews.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblReviews.Name" xml:space="preserve">
+    <value>lblReviews</value>
   </data>
   <data name="lblReviews.Text" xml:space="preserve">
     <value>0</value>
@@ -300,20 +300,20 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>221, 211</value>
   </data>
-  <data name="lblSlug.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblReviewsAvailable.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="btnShowAnswer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 23</value>
   </data>
-  <data name="&gt;&gt;lblSlug.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnSubmit.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="lblSlug.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 9</value>
   </data>
-  <data name="&gt;&gt;txtMeaning.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtMeaning.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lblReviews.ZOrder" xml:space="preserve">
     <value>0</value>

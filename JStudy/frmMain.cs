@@ -35,9 +35,7 @@ namespace JStudy
         {
             this.Hide();
             frmWaniKani wkForm = new frmWaniKani();
-            wkForm.ShowDialog();
-            this.Show();
-            
+            wkForm.Show();    
         }
     }
 }

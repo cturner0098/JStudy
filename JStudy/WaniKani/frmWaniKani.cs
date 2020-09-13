@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,13 +15,41 @@ namespace JStudy.WaniKani
 {
     public partial class frmWaniKani : Form
     {
+        // DLL libraries used to manage hotkeys
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
         List<Subject> subjectList;
         int incorrectMeaning = 0;
         int incorrectReading = 0;
 
+        bool isHidden = false;
         public frmWaniKani()
         {
             InitializeComponent();
+
+            RegisterHotKey(this.Handle, 4, 0, (int)Keys.F10);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+
+            if (m.Msg == 0x0312)
+            {
+                if(isHidden)
+                {
+                    this.Visible = true;
+                    isHidden = false;
+                } else
+                {
+                    this.Visible = false;
+                    isHidden = true;
+                }
+                
+            }
         }
 
         private void frmWaniKani_Load(object sender, EventArgs e)
@@ -120,6 +149,11 @@ namespace JStudy.WaniKani
         private void txtMeaning_Enter(object sender, EventArgs e)
         {
             InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+        }
+
+        private void frmWaniKani_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
