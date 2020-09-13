@@ -36,6 +36,7 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnShowAnswer = new System.Windows.Forms.Button();
             this.lblReviews = new System.Windows.Forms.Label();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblReviewsAvailable
@@ -79,10 +80,18 @@
             resources.ApplyResources(this.lblReviews, "lblReviews");
             this.lblReviews.Name = "lblReviews";
             // 
+            // btnSettings
+            // 
+            resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // frmWaniKani
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblReviews);
             this.Controls.Add(this.btnShowAnswer);
             this.Controls.Add(this.btnSubmit);
@@ -109,5 +118,6 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnShowAnswer;
         private System.Windows.Forms.Label lblReviews;
+        private System.Windows.Forms.Button btnSettings;
     }
 }

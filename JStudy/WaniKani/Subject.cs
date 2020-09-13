@@ -19,7 +19,7 @@ namespace JStudy.WaniKani
 
         static string endPoint = "https://api.wanikani.com/v2/subjects";
 
-        public Subject(int id, string @object, int level, string slug, List<String> meanings, List<String> readings)
+        public Subject(int id, string @object, int level, string slug, List<String> meanings, List<String>? readings)
         {
             Id = id;
             Object = @object;
@@ -40,7 +40,7 @@ namespace JStudy.WaniKani
             // TODO: user selected
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("immediately_available_for_review", "");
-            parameters.Add("subject_types", "kanji");
+            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
 
 
             // Fetch assignments
@@ -68,11 +68,20 @@ namespace JStudy.WaniKani
                     from meanings in data["data"]["meanings"]
                     select (string)meanings["meaning"];
 
-                var readingList =
+                try
+                {
+                   var readingList =
                     from readings in data["data"]["readings"]
                     select (string)readings["reading"];
 
-                subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], (string)data["data"]["slug"], meaningList.ToList<string>(), readingList.ToList<string>()));
+                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], (string)data["data"]["slug"], meaningList.ToList<string>(), readingList.ToList<string>()));
+                } catch(Exception ex)
+                {
+                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], (string)data["data"]["characters"], meaningList.ToList<string>(), null));
+                }
+                
+
+                
             }
             return subjectList;
         }
