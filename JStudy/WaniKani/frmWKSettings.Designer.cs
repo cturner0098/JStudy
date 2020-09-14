@@ -74,6 +74,7 @@
             this.Controls.Add(this.lblStudyType);
             this.Name = "frmWKSettings";
             this.Text = "WK Settings";
+            this.Load += new System.EventHandler(this.frmWKSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
