@@ -37,6 +37,7 @@
             this.btnShowAnswer = new System.Windows.Forms.Button();
             this.lblReviews = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.lblSubjectType = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblReviewsAvailable
@@ -87,10 +88,16 @@
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
+            // lblSubjectType
+            // 
+            resources.ApplyResources(this.lblSubjectType, "lblSubjectType");
+            this.lblSubjectType.Name = "lblSubjectType";
+            // 
             // frmWaniKani
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblSubjectType);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblReviews);
             this.Controls.Add(this.btnShowAnswer);
@@ -119,5 +126,6 @@
         private System.Windows.Forms.Button btnShowAnswer;
         private System.Windows.Forms.Label lblReviews;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Label lblSubjectType;
     }
 }

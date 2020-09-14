@@ -88,6 +88,7 @@ namespace JStudy.WaniKani
             subjectList.RemoveAt(0);
 
             lblSlug.Text = subjectList[0].Slug;
+            lblSubjectType.Text = subjectList[0].Object;
 
             incorrectMeaning = 0;
             incorrectReading = 0;
