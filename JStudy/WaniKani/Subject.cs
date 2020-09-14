@@ -54,6 +54,7 @@ namespace JStudy.WaniKani
             var subjectJoin = string.Join(",", availableSubjectIds);
             parameters.Clear();
             parameters.Add("ids", subjectJoin);
+            parameters.Add("types", Properties.Settings.Default.StudyTypes);
 
             // Fetch Subjects
             var subjects = JObject.Parse(Subject.GetAllSubjects(parameters));
