@@ -26,6 +26,7 @@ namespace JStudy.WaniKani
             }
 
             Properties.Settings.Default.StudyTypes = string.Join(",", studyTypes);
+            Properties.Settings.Default.APIKey = txtAPIKey.Text;
             Properties.Settings.Default.Save();
         }
 

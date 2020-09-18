@@ -55,7 +55,13 @@ namespace JStudy.WaniKani
 
         private void frmWaniKani_Load(object sender, EventArgs e)
         {
-            if(!Properties.Settings.Default.WKSettings)
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
+            this.Refresh();
+            if (!Properties.Settings.Default.WKSettings)
             {
                 frmWKSettings wkSettings = new frmWKSettings();
                 this.Hide();
@@ -63,31 +69,29 @@ namespace JStudy.WaniKani
                 Properties.Settings.Default.WKSettings = true;
                 Properties.Settings.Default.Save();
             }
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("immediately_available_for_review", "");
-            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
 
-            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
-            var availableReviews = assignments
-                .Root
-                .SelectToken("total_count")
-                .ToString();
-            lblReviews.Text += availableReviews;
+            lblReviews.Text = Assignment.GetAvailableAssignmentCount().ToString();
 
-            subjectList = Subject.BuildSubjectList();
+            subjectList = Subject.BuildSubjectList(Assignment.GetAvailableAssignments());
 
             LoadNextSubject();
-            // lblReviewsAvailable.Text = subjectList[0].Meanings[0] + " " + subjectList[0].Readings[0];
         }
-
         public void LoadNextSubject()
         {
             int reviews = Convert.ToInt32(lblReviews.Text);
             lblReviews.Text = (--reviews).ToString();
 
             subjectList.RemoveAt(0);
+            
+            if(subjectList.Count == 0)
+            {
+                btnSubmit.Enabled = false;
+                btnShowAnswer.Enabled = false;
+                lblSlug.Text = "done";
+                return;
+            }
 
-            lblSlug.Text = subjectList[0].Slug;
+            lblSlug.Text = subjectList[0].Character;
             lblSubjectType.Text = subjectList[0].Object;
 
             incorrectMeaning = 0;
@@ -96,6 +100,7 @@ namespace JStudy.WaniKani
             txtReading.Text = "";
 
             btnShowAnswer.Enabled = false;
+            btnCorrect.Enabled = false;
             txtMeaning.Focus();
 
             txtReading.Enabled = subjectList[0].Readings == null ? false : true;
@@ -104,44 +109,47 @@ namespace JStudy.WaniKani
         private async void btnSubmit_Click(object sender, EventArgs e)
         {
             // Check based on meaning
-            bool correct = false;
+            bool correctMeaning = false, correctReading = false;
             var levenshtein = new Levenshtein();
             foreach(string meaning in subjectList[0].Meanings)
             {
-                if(levenshtein.iLD(txtMeaning.Text.ToUpperInvariant(), meaning.ToUpperInvariant()) <= 30)
+                int lev = levenshtein.iLD(txtMeaning.Text.ToUpperInvariant(), meaning.ToUpperInvariant());
+                if (lev <= 30)
                 {
-                    correct = true;
+                    correctMeaning = true;
                     break;
                 } else
                 {
-                    correct = false;
+                    correctMeaning = false;
                 }
             }
 
-            if (!correct)
+            if (!correctMeaning)
                 incorrectMeaning++;
 
             // Check based on reading
-            if(subjectList[0].Readings != null)
+            KanaTools kt = new KanaTools();
+            txtReading.Text = kt.ToHiragana(txtReading.Text.ToLower());
+            if (subjectList[0].Readings != null)
             {
                 foreach (string reading in subjectList[0].Readings)
                 {
-                    if (txtReading.Text.ToLower() == reading.ToLower())
+                    if (kt.ToHiragana(txtReading.Text.ToLower()) == reading.ToLower())
                     {
-                        correct = true;
+                        correctReading = true;
                         break;
                     }
                     else
                     {
-                        correct = false;
+                        correctReading = false;
                     }
                 }
             }
             
-            if (!correct)
+            if (!correctReading)
                 incorrectReading++;
 
-            if (correct)
+            if (correctMeaning && correctReading)
             {
                 await Review.CreateReview(subjectList[0].Id, incorrectMeaning, incorrectReading);
                 LoadNextSubject();
@@ -155,6 +163,7 @@ namespace JStudy.WaniKani
         {
             txtMeaning.Text = subjectList[0].Meanings[0];
             txtReading.Text = subjectList[0].Readings != null ? subjectList[0].Readings[0] : "";
+            btnCorrect.Enabled = true;
         }
 
         private void txtReading_Enter(object sender, EventArgs e)
@@ -179,6 +188,21 @@ namespace JStudy.WaniKani
             wkSettings.ShowDialog();
             Properties.Settings.Default.WKSettings = true;
             Properties.Settings.Default.Save();
+            RefreshForm();
+            this.Show();
+        }
+
+        private void btnLookup_Click(object sender, EventArgs e)
+        {
+            frmWKLookup wkLookup = new frmWKLookup();
+            this.Hide();
+            wkLookup.ShowDialog();
+        }
+
+        private void btnCorrect_Click(object sender, EventArgs e)
+        {
+            _ = Review.CreateReview(subjectList[0].Id, 0, 0);
+            LoadNextSubject();
         }
     }
 }
