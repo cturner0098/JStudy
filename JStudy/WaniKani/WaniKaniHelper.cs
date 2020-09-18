@@ -33,6 +33,7 @@ namespace JStudy.WaniKani
             client.Headers["Authorization"] = authHeader;
             client.Headers["Wanikani-Revision"] = wanikaniRevision;
 
+            // TODO: ADD API VERIFICATION
             HttpWebResponse clientResposne = (HttpWebResponse)client.GetResponse();
 
             Stream streamResposne = clientResposne.GetResponseStream();

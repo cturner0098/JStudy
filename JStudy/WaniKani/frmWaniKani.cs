@@ -202,6 +202,7 @@ namespace JStudy.WaniKani
         private void btnCorrect_Click(object sender, EventArgs e)
         {
             _ = Review.CreateReview(subjectList[0].Id, 0, 0);
+            LoadNextSubject();
         }
     }
 }
