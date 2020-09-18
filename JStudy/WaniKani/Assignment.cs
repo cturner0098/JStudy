@@ -1,6 +1,7 @@
 ﻿// https://docs.api.wanikani.com/20170710/#get-all-assignments
 using JStudy.Utilities;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,39 @@ namespace JStudy.WaniKani
         public static string GetAllAssignments(Dictionary<string, string>? queryParameters = null)
         {
             return GetJsonData(endPoint, queryParameters);
+        }
+
+        public static string GetAvailableAssignments()
+        {
+            // Create parameters 
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("immediately_available_for_review", "");
+            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
+
+
+            // Fetch assignments
+            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
+
+            var availableSubjectIds =
+                from id in assignments["data"].Children()["data"]
+                select (int)id["subject_id"];
+
+            // Create List of Subject Ids
+            var subjectJoin = string.Join(",", availableSubjectIds);
+            return subjectJoin;
+        }
+
+        public static int GetAvailableAssignmentCount()
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("immediately_available_for_review", "");
+            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
+
+            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
+            var availableReviews = assignments
+                .Root
+                .SelectToken("total_count");
+            return (int)availableReviews;
         }
     }
 }

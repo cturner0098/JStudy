@@ -38,6 +38,7 @@
             this.lblReviews = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblSubjectType = new System.Windows.Forms.Label();
+            this.btnLookup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblReviewsAvailable
@@ -93,10 +94,18 @@
             resources.ApplyResources(this.lblSubjectType, "lblSubjectType");
             this.lblSubjectType.Name = "lblSubjectType";
             // 
+            // btnLookup
+            // 
+            resources.ApplyResources(this.btnLookup, "btnLookup");
+            this.btnLookup.Name = "btnLookup";
+            this.btnLookup.UseVisualStyleBackColor = true;
+            this.btnLookup.Click += new System.EventHandler(this.btnLookup_Click);
+            // 
             // frmWaniKani
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnLookup);
             this.Controls.Add(this.lblSubjectType);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblReviews);
@@ -108,7 +117,6 @@
             this.Controls.Add(this.lblReviewsAvailable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmWaniKani";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmWaniKani_FormClosing);
             this.Load += new System.EventHandler(this.frmWaniKani_Load);
             this.ResumeLayout(false);
@@ -127,5 +135,6 @@
         private System.Windows.Forms.Label lblReviews;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Label lblSubjectType;
+        private System.Windows.Forms.Button btnLookup;
     }
 }

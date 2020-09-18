@@ -13,18 +13,18 @@ namespace JStudy.WaniKani
         public int Id { get; set; }
         public string Object { get; set; }
         public int Level { get; set; }
-        public string Slug { get; set; }
+        public string Character { get; set; }
         public List<String> Meanings { get; set; }
         public List<String> Readings { get; set; }
 
         static string endPoint = "https://api.wanikani.com/v2/subjects";
 
-        public Subject(int id, string @object, int level, string slug, List<String> meanings, List<String>? readings)
+        public Subject(int id, string @object, int level, string character, List<String> meanings, List<String>? readings)
         {
             Id = id;
             Object = @object;
             Level = level;
-            Slug = slug;
+            Character = character;
             Meanings = meanings;
             Readings = readings;
         }
@@ -34,26 +34,13 @@ namespace JStudy.WaniKani
             return GetJsonData(endPoint, queryParameters);
         }
         
-        public static List<Subject> BuildSubjectList()
+        public static List<Subject> BuildSubjectList(string subjectIDList)
         {
             // Create parameters 
             // TODO: user selected
+            // ids need to have their own join method, can program in GetAvailableAssignments
             Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("immediately_available_for_review", "");
-            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
-
-
-            // Fetch assignments
-            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
-
-            var availableSubjectIds =
-                from id in assignments["data"].Children()["data"]
-                select (int)id["subject_id"];
-
-            // Create List of Subject Ids
-            var subjectJoin = string.Join(",", availableSubjectIds);
-            parameters.Clear();
-            parameters.Add("ids", subjectJoin);
+            parameters.Add("ids", subjectIDList);
             parameters.Add("types", Properties.Settings.Default.StudyTypes);
 
             // Fetch Subjects
@@ -69,16 +56,18 @@ namespace JStudy.WaniKani
                     from meanings in data["data"]["meanings"]
                     select (string)meanings["meaning"];
 
+                var character = (string)data["data"]["characters"] ?? "null";
+
                 try
                 {
                    var readingList =
                     from readings in data["data"]["readings"]
                     select (string)readings["reading"];
 
-                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], (string)data["data"]["slug"], meaningList.ToList<string>(), readingList.ToList<string>()));
+                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], character, meaningList.ToList<string>(), readingList.ToList<string>()));
                 } catch(Exception ex)
                 {
-                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], (string)data["data"]["characters"], meaningList.ToList<string>(), null));
+                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], character, meaningList.ToList<string>(), null));
                 }
                 
 
