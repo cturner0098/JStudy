@@ -15,7 +15,7 @@ namespace JStudy.WaniKani
     class WaniKaniHelper
     {
         static string wanikaniRevision = "20170710";
-        static string apiKey = "500ce2a7-c0b6-4361-b4fa-c74081b123ca";
+        static string apiKey = Properties.Settings.Default.APIKey;
         static string authHeader = "Bearer " + apiKey;
 
         public static string GetJsonData(string endPoint, Dictionary<string,string>? queryParameters)
