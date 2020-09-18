@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblReviewsAvailable.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="lblSlug.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -177,7 +177,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSlug.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="txtMeaning.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 74</value>
@@ -198,7 +198,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtMeaning.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtReading.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -223,7 +223,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtReading.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="btnSubmit.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 126</value>
@@ -247,7 +247,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSubmit.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnShowAnswer.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -256,7 +256,7 @@
     <value>23, 155</value>
   </data>
   <data name="btnShowAnswer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 23</value>
+    <value>92, 23</value>
   </data>
   <data name="btnShowAnswer.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -274,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnShowAnswer.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lblReviews.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -301,7 +301,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblReviews.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 205</value>
@@ -325,7 +325,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblSubjectType.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -352,7 +352,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSubjectType.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnLookup.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 234</value>
@@ -376,6 +376,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnLookup.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnCorrect.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnCorrect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 155</value>
+  </data>
+  <data name="btnCorrect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnCorrect.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnCorrect.Text" xml:space="preserve">
+    <value>Correct?</value>
+  </data>
+  <data name="&gt;&gt;btnCorrect.Name" xml:space="preserve">
+    <value>btnCorrect</value>
+  </data>
+  <data name="&gt;&gt;btnCorrect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCorrect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCorrect.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

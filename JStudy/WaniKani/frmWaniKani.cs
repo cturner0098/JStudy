@@ -100,6 +100,7 @@ namespace JStudy.WaniKani
             txtReading.Text = "";
 
             btnShowAnswer.Enabled = false;
+            btnCorrect.Enabled = false;
             txtMeaning.Focus();
 
             txtReading.Enabled = subjectList[0].Readings == null ? false : true;
@@ -162,6 +163,7 @@ namespace JStudy.WaniKani
         {
             txtMeaning.Text = subjectList[0].Meanings[0];
             txtReading.Text = subjectList[0].Readings != null ? subjectList[0].Readings[0] : "";
+            btnCorrect.Enabled = true;
         }
 
         private void txtReading_Enter(object sender, EventArgs e)
@@ -195,6 +197,11 @@ namespace JStudy.WaniKani
             frmWKLookup wkLookup = new frmWKLookup();
             this.Hide();
             wkLookup.ShowDialog();
+        }
+
+        private void btnCorrect_Click(object sender, EventArgs e)
+        {
+            _ = Review.CreateReview(subjectList[0].Id, 0, 0);
         }
     }
 }

@@ -39,6 +39,7 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblSubjectType = new System.Windows.Forms.Label();
             this.btnLookup = new System.Windows.Forms.Button();
+            this.btnCorrect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblReviewsAvailable
@@ -101,11 +102,19 @@
             this.btnLookup.UseVisualStyleBackColor = true;
             this.btnLookup.Click += new System.EventHandler(this.btnLookup_Click);
             // 
+            // btnCorrect
+            // 
+            resources.ApplyResources(this.btnCorrect, "btnCorrect");
+            this.btnCorrect.Name = "btnCorrect";
+            this.btnCorrect.UseVisualStyleBackColor = true;
+            this.btnCorrect.Click += new System.EventHandler(this.btnCorrect_Click);
+            // 
             // frmWaniKani
             // 
             this.AcceptButton = this.btnSubmit;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnCorrect);
             this.Controls.Add(this.btnLookup);
             this.Controls.Add(this.lblSubjectType);
             this.Controls.Add(this.btnSettings);
@@ -138,5 +147,6 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Label lblSubjectType;
         private System.Windows.Forms.Button btnLookup;
+        private System.Windows.Forms.Button btnCorrect;
     }
 }
