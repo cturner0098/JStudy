@@ -112,7 +112,8 @@ namespace JStudy.WaniKani
             var levenshtein = new Levenshtein();
             foreach(string meaning in subjectList[0].Meanings)
             {
-                if(levenshtein.iLD(txtMeaning.Text.ToUpperInvariant(), meaning.ToUpperInvariant()) <= 30)
+                int lev = levenshtein.iLD(txtMeaning.Text.ToUpperInvariant(), meaning.ToUpperInvariant());
+                if (lev <= 30)
                 {
                     correct = true;
                     break;
@@ -147,7 +148,7 @@ namespace JStudy.WaniKani
             if (!correct)
                 incorrectReading++;
 
-            if (correct)
+            if (incorrectMeaning == 0 && incorrectReading == 0)
             {
                 await Review.CreateReview(subjectList[0].Id, incorrectMeaning, incorrectReading);
                 LoadNextSubject();
