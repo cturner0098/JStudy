@@ -108,22 +108,22 @@ namespace JStudy.WaniKani
         private async void btnSubmit_Click(object sender, EventArgs e)
         {
             // Check based on meaning
-            bool correct = false;
+            bool correctMeaning = false, correctReading = false;
             var levenshtein = new Levenshtein();
             foreach(string meaning in subjectList[0].Meanings)
             {
                 int lev = levenshtein.iLD(txtMeaning.Text.ToUpperInvariant(), meaning.ToUpperInvariant());
                 if (lev <= 30)
                 {
-                    correct = true;
+                    correctMeaning = true;
                     break;
                 } else
                 {
-                    correct = false;
+                    correctMeaning = false;
                 }
             }
 
-            if (!correct)
+            if (!correctMeaning)
                 incorrectMeaning++;
 
             // Check based on reading
@@ -135,20 +135,20 @@ namespace JStudy.WaniKani
                 {
                     if (kt.ToHiragana(txtReading.Text.ToLower()) == reading.ToLower())
                     {
-                        correct = true;
+                        correctReading = true;
                         break;
                     }
                     else
                     {
-                        correct = false;
+                        correctReading = false;
                     }
                 }
             }
             
-            if (!correct)
+            if (!correctReading)
                 incorrectReading++;
 
-            if (incorrectMeaning == 0 && incorrectReading == 0)
+            if (correctMeaning && correctReading)
             {
                 await Review.CreateReview(subjectList[0].Id, incorrectMeaning, incorrectReading);
                 LoadNextSubject();
