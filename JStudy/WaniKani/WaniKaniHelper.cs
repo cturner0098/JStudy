@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JStudy.WaniKani
 {
@@ -33,8 +34,22 @@ namespace JStudy.WaniKani
             client.Headers["Authorization"] = authHeader;
             client.Headers["Wanikani-Revision"] = wanikaniRevision;
 
-            // TODO: ADD API VERIFICATION
-            HttpWebResponse clientResposne = (HttpWebResponse)client.GetResponse();
+            HttpWebResponse clientResposne;
+            try
+            {
+                // TODO: ADD API VERIFICATION
+                clientResposne = (HttpWebResponse)client.GetResponse();
+            } catch(WebException webEx)
+            {
+                clientResposne = null;
+                MessageBox.Show(webEx.Message);
+                frmWKSettings wkSettings = new frmWKSettings();
+                wkSettings.ShowDialog();
+                Properties.Settings.Default.WKSettings = true;
+                Properties.Settings.Default.Save();
+                GetJsonData(endPoint, queryParameters);
+            }
+            
 
             Stream streamResposne = clientResposne.GetResponseStream();
             StreamReader streamRead = new StreamReader(streamResposne, Encoding.UTF8);

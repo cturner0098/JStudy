@@ -28,8 +28,13 @@ namespace JStudy
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            Properties.Settings.Default.WKSettings = false;
-            Properties.Settings.Default.Save();
+            if(Properties.Settings.Default.WKSettings == false ||
+                Properties.Settings.Default.APIKey == "")
+            {
+                Properties.Settings.Default.WKSettings = false;
+                Properties.Settings.Default.Save();
+            }
+            
         }
 
         private void btnWaniKani_Click(object sender, EventArgs e)

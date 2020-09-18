@@ -55,12 +55,6 @@ namespace JStudy.WaniKani
 
         private void frmWaniKani_Load(object sender, EventArgs e)
         {
-            RefreshForm();
-        }
-
-        private void RefreshForm()
-        {
-            this.Refresh();
             if (!Properties.Settings.Default.WKSettings)
             {
                 frmWKSettings wkSettings = new frmWKSettings();
@@ -70,12 +64,20 @@ namespace JStudy.WaniKani
                 Properties.Settings.Default.Save();
             }
 
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
+            this.Refresh();
+            
             lblReviews.Text = Assignment.GetAvailableAssignmentCount().ToString();
 
             subjectList = Subject.BuildSubjectList(Assignment.GetAvailableAssignments());
 
             LoadNextSubject();
         }
+
         public void LoadNextSubject()
         {
             int reviews = Convert.ToInt32(lblReviews.Text);

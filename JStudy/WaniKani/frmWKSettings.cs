@@ -28,6 +28,11 @@ namespace JStudy.WaniKani
             Properties.Settings.Default.StudyTypes = string.Join(",", studyTypes);
             Properties.Settings.Default.APIKey = txtAPIKey.Text;
             Properties.Settings.Default.Save();
+
+            if(clbStudyTypes.Items.Count != 0)
+            {
+                this.Close();
+            }
         }
 
         private void frmWKSettings_Load(object sender, EventArgs e)
@@ -46,6 +51,8 @@ namespace JStudy.WaniKani
             {
                 clbStudyTypes.SetItemChecked(2, true);
             }
+
+            txtAPIKey.Text = Properties.Settings.Default.APIKey;
         }
     }
 }
