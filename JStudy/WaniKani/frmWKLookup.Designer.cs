@@ -132,6 +132,7 @@
             this.Controls.Add(this.btnLookup);
             this.Controls.Add(this.txtCharacter);
             this.Controls.Add(this.lblCharacter);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmWKLookup";
             this.Text = "frmWKLookup";
             this.ResumeLayout(false);
