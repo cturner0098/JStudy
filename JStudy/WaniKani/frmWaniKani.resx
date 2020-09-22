@@ -388,7 +388,7 @@
     <value>75, 23</value>
   </data>
   <data name="btnCorrect.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>6</value>
   </data>
   <data name="btnCorrect.Text" xml:space="preserve">
     <value>Correct?</value>

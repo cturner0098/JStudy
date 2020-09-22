@@ -75,6 +75,8 @@ namespace JStudy.WaniKani
 
             subjectList = Subject.BuildSubjectList(Assignment.GetAvailableAssignments());
 
+            subjectList = subjectList.OrderBy(x => Guid.NewGuid().ToString()).ToList();
+
             LoadNextSubject();
         }
 
@@ -147,7 +149,11 @@ namespace JStudy.WaniKani
                     }
                 }
             }
-            
+            else
+            {
+                correctReading = true;
+            }
+
             if (!correctReading)
                 incorrectReading++;
 
