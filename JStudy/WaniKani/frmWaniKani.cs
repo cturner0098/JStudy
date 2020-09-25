@@ -107,7 +107,14 @@ namespace JStudy.WaniKani
             btnCorrect.Enabled = false;
             txtMeaning.Focus();
 
-            txtReading.Enabled = subjectList[0].Readings == null ? false : true;
+            if(subjectList[0].Readings == null)
+            {
+                txtReading.Enabled = false;
+            } else
+            {
+                txtReading.Enabled = true;
+                btnSubmit.Enabled = true;
+            }
         }
 
         private async void btnSubmit_Click(object sender, EventArgs e)
