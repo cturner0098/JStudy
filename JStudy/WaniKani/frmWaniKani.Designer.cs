@@ -40,6 +40,8 @@
             this.lblSubjectType = new System.Windows.Forms.Label();
             this.btnLookup = new System.Windows.Forms.Button();
             this.btnCorrect = new System.Windows.Forms.Button();
+            this.lblMeaning = new System.Windows.Forms.Label();
+            this.lblReading = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblReviewsAvailable
@@ -109,11 +111,23 @@
             this.btnCorrect.UseVisualStyleBackColor = true;
             this.btnCorrect.Click += new System.EventHandler(this.btnCorrect_Click);
             // 
+            // lblMeaning
+            // 
+            resources.ApplyResources(this.lblMeaning, "lblMeaning");
+            this.lblMeaning.Name = "lblMeaning";
+            // 
+            // lblReading
+            // 
+            resources.ApplyResources(this.lblReading, "lblReading");
+            this.lblReading.Name = "lblReading";
+            // 
             // frmWaniKani
             // 
             this.AcceptButton = this.btnSubmit;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblReading);
+            this.Controls.Add(this.lblMeaning);
             this.Controls.Add(this.btnCorrect);
             this.Controls.Add(this.btnLookup);
             this.Controls.Add(this.lblSubjectType);
@@ -148,5 +162,7 @@
         private System.Windows.Forms.Label lblSubjectType;
         private System.Windows.Forms.Button btnLookup;
         private System.Windows.Forms.Button btnCorrect;
+        private System.Windows.Forms.Label lblMeaning;
+        private System.Windows.Forms.Label lblReading;
     }
 }

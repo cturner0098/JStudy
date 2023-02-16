@@ -140,12 +140,11 @@ namespace JStudy.WaniKani
 
             // Check based on reading
             KanaTools kt = new KanaTools();
-            txtReading.Text = kt.ToHiragana(txtReading.Text.ToLower());
             if (subjectList[0].Readings != null)
             {
                 foreach (string reading in subjectList[0].Readings)
                 {
-                    if (kt.ToHiragana(txtReading.Text.ToLower()) == reading.ToLower())
+                    if (txtReading.Text.ToLower() == kt.ToRomaji(reading).ToLower())
                     {
                         correctReading = true;
                         break;
