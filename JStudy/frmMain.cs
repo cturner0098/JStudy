@@ -29,7 +29,8 @@ namespace JStudy
         private void frmMain_Load(object sender, EventArgs e)
         {
             if(Properties.Settings.Default.WKSettings == false ||
-                Properties.Settings.Default.APIKey == "")
+                Properties.Settings.Default.APIKey == "" ||
+                Properties.Settings.Default.AssignmentType.HasFlag(AssignmentType.None))
             {
                 Properties.Settings.Default.WKSettings = false;
                 Properties.Settings.Default.Save();
@@ -40,8 +41,19 @@ namespace JStudy
         private void btnWaniKani_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmWKReview wkForm = new frmWKReview();
-            wkForm.Show();    
+            if(Properties.Settings.Default.AssignmentType == AssignmentType.Lesson)
+            {
+                WaniKaniLesson wkForm = new WaniKaniLesson();
+                wkForm.Show();
+            } else if (Properties.Settings.Default.AssignmentType == AssignmentType.Review)
+            {
+                WaniKaniReview wkForm = new WaniKaniReview();
+                wkForm.Show();
+            } else
+            {
+                WaniKaniSetting wkForm = new WaniKaniSetting();
+                wkForm.Show();
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace JStudy.WaniKani
 {
-    class WaniKaniHelper
+    public class WaniKaniHelper
     {
         static string wanikaniRevision = "20170710";
         static string apiKey = Properties.Settings.Default.APIKey;
@@ -43,7 +43,7 @@ namespace JStudy.WaniKani
             {
                 clientResposne = null;
                 MessageBox.Show(webEx.Message);
-                frmWKSettings wkSettings = new frmWKSettings();
+                WaniKaniSetting wkSettings = new WaniKaniSetting();
                 wkSettings.ShowDialog();
                 Properties.Settings.Default.WKSettings = true;
                 Properties.Settings.Default.Save();

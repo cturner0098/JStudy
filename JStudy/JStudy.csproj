@@ -86,17 +86,17 @@
     <Compile Include="Utilities\RomajiToKana.cs" />
     <Compile Include="WaniKani\Assignment.cs" />
     <Compile Include="WaniKani\Configuration.cs" />
-    <Compile Include="WaniKani\frmWKLesson.cs">
+    <Compile Include="WaniKani\WaniKaniLesson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaniKani\frmWKLesson.Designer.cs">
-      <DependentUpon>frmWKLesson.cs</DependentUpon>
+    <Compile Include="WaniKani\WaniKaniLesson.Designer.cs">
+      <DependentUpon>WaniKaniLesson.cs</DependentUpon>
     </Compile>
-    <Compile Include="WaniKani\frmWKReview.cs">
+    <Compile Include="WaniKani\WaniKaniReview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaniKani\frmWKReview.Designer.cs">
-      <DependentUpon>frmWKReview.cs</DependentUpon>
+    <Compile Include="WaniKani\WaniKaniReview.Designer.cs">
+      <DependentUpon>WaniKaniReview.cs</DependentUpon>
     </Compile>
     <Compile Include="WaniKani\frmWKLookup.cs">
       <SubType>Form</SubType>
@@ -104,14 +104,17 @@
     <Compile Include="WaniKani\frmWKLookup.Designer.cs">
       <DependentUpon>frmWKLookup.cs</DependentUpon>
     </Compile>
-    <Compile Include="WaniKani\frmWKSettings.cs">
+    <Compile Include="WaniKani\WaniKaniSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaniKani\frmWKSettings.Designer.cs">
-      <DependentUpon>frmWKSettings.cs</DependentUpon>
+    <Compile Include="WaniKani\WaniKaniSetting.Designer.cs">
+      <DependentUpon>WaniKaniSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="WaniKani\Review.cs" />
     <Compile Include="WaniKani\Subject.cs" />
+    <Compile Include="WaniKani\WaniKaniBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WaniKani\WaniKaniHelper.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -125,17 +128,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WaniKani\frmWKReview.ja.resx">
-      <DependentUpon>frmWKReview.cs</DependentUpon>
+    <EmbeddedResource Include="WaniKani\WaniKaniLesson.resx">
+      <DependentUpon>WaniKaniLesson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WaniKani\frmWKReview.resx">
-      <DependentUpon>frmWKReview.cs</DependentUpon>
+    <EmbeddedResource Include="WaniKani\WaniKaniReview.ja.resx">
+      <DependentUpon>WaniKaniReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaniKani\WaniKaniReview.resx">
+      <DependentUpon>WaniKaniReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaniKani\frmWKLookup.resx">
       <DependentUpon>frmWKLookup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WaniKani\frmWKSettings.resx">
-      <DependentUpon>frmWKSettings.cs</DependentUpon>
+    <EmbeddedResource Include="WaniKani\WaniKaniSetting.resx">
+      <DependentUpon>WaniKaniSetting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="JStudy_TemporaryKey.pfx" />
     <None Include="packages.config" />

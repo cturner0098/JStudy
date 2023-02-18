@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JStudy.WaniKani
 {
-    class Subject : WaniKaniHelper
+    public class Subject : WaniKaniHelper
     {
         public int Id { get; set; }
         public string Object { get; set; }

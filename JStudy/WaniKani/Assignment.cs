@@ -48,7 +48,7 @@ namespace JStudy.WaniKani
             // Create parameters 
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
-                { "unlocked", "false" },
+                { "immediately_available_for_lessons", "" },
                 { "subject_types", Properties.Settings.Default.StudyTypes }
             };
 

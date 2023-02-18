@@ -23,9 +23,10 @@ namespace JStudy
         
     }
 
-    public enum LessonType
+    public enum AssignmentType
     {
+        None = 0,
         Review = 1,
-        Assignment = 2,
+        Lesson = 2,
     }
 }

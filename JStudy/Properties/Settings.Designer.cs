@@ -61,12 +61,13 @@ namespace JStudy.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::JStudy.LessonType LessonType {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public global::JStudy.AssignmentType AssignmentType {
             get {
-                return ((global::JStudy.LessonType)(this["LessonType"]));
+                return ((global::JStudy.AssignmentType)(this["AssignmentType"]));
             }
             set {
-                this["LessonType"] = value;
+                this["AssignmentType"] = value;
             }
         }
     }

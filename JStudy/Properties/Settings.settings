@@ -11,8 +11,8 @@
     <Setting Name="WKSettings" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="LessonType" Type="JStudy.LessonType" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="AssignmentType" Type="JStudy.AssignmentType" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>
