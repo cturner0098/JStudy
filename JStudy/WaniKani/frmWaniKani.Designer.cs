@@ -64,6 +64,7 @@
             // 
             resources.ApplyResources(this.txtReading, "txtReading");
             this.txtReading.Name = "txtReading";
+            this.txtReading.TextChanged += new System.EventHandler(this.txtReading_TextChanged);
             this.txtReading.Enter += new System.EventHandler(this.txtReading_Enter);
             // 
             // btnSubmit
@@ -120,6 +121,7 @@
             // 
             resources.ApplyResources(this.lblReading, "lblReading");
             this.lblReading.Name = "lblReading";
+            this.lblReading.Click += new System.EventHandler(this.lblReading_Click);
             // 
             // frmWaniKani
             // 

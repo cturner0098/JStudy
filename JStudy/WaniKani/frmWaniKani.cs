@@ -27,6 +27,7 @@ namespace JStudy.WaniKani
         int incorrectReading = 0;
 
         bool isHidden = false;
+        bool isFailed = false;
         public frmWaniKani()
         {
             InitializeComponent();
@@ -64,7 +65,7 @@ namespace JStudy.WaniKani
                 Properties.Settings.Default.Save();
             }
 
-            RefreshForm();
+            LoadNextSubject();
         }
 
         private void RefreshForm()
@@ -75,19 +76,23 @@ namespace JStudy.WaniKani
 
             subjectList = Subject.BuildSubjectList(Assignment.GetAvailableAssignments());
 
-            subjectList = subjectList.OrderBy(x => Guid.NewGuid().ToString()).ToList();
-
-            LoadNextSubject();
+            if(subjectList != null) 
+            { 
+                subjectList = subjectList.OrderBy(x => Guid.NewGuid().ToString()).ToList();
+            }
         }
 
         public void LoadNextSubject()
         {
+            RefreshForm();
+
+            isFailed = false;
+            btnSubmit.Text = "Submit";
+
             int reviews = Convert.ToInt32(lblReviews.Text);
             lblReviews.Text = (--reviews).ToString();
-
-            subjectList.RemoveAt(0);
             
-            if(subjectList.Count == 0)
+            if(subjectList == null || subjectList.Count == 0)
             {
                 btnSubmit.Enabled = false;
                 btnShowAnswer.Enabled = false;
@@ -119,6 +124,12 @@ namespace JStudy.WaniKani
 
         private async void btnSubmit_Click(object sender, EventArgs e)
         {
+            if(isFailed)
+            {
+                LoadNextSubject();
+                return;
+            }
+
             // Check based on meaning
             bool correctMeaning = false, correctReading = false;
             var levenshtein = new Levenshtein();
@@ -169,7 +180,10 @@ namespace JStudy.WaniKani
                 LoadNextSubject();
             } else
             {
+                await Review.CreateReview(subjectList[0].Id, incorrectMeaning, incorrectReading);
                 btnShowAnswer.Enabled = true;
+                btnSubmit.Text = "Next";
+                isFailed = true;
             }
         }
 
@@ -217,6 +231,16 @@ namespace JStudy.WaniKani
         {
             _ = Review.CreateReview(subjectList[0].Id, 0, 0);
             LoadNextSubject();
+        }
+
+        private void lblReading_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtReading_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

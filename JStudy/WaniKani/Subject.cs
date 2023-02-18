@@ -36,6 +36,10 @@ namespace JStudy.WaniKani
         
         public static List<Subject> BuildSubjectList(string subjectIDList)
         {
+            if(string.IsNullOrWhiteSpace(subjectIDList))
+            {
+                return null;
+            }
             // Create parameters 
             // TODO: user selected
             // ids need to have their own join method, can program in GetAvailableAssignments
