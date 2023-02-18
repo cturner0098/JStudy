@@ -86,11 +86,17 @@
     <Compile Include="Utilities\RomajiToKana.cs" />
     <Compile Include="WaniKani\Assignment.cs" />
     <Compile Include="WaniKani\Configuration.cs" />
-    <Compile Include="WaniKani\frmWaniKani.cs">
+    <Compile Include="WaniKani\frmWKLesson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaniKani\frmWaniKani.Designer.cs">
-      <DependentUpon>frmWaniKani.cs</DependentUpon>
+    <Compile Include="WaniKani\frmWKLesson.Designer.cs">
+      <DependentUpon>frmWKLesson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaniKani\frmWKReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaniKani\frmWKReview.Designer.cs">
+      <DependentUpon>frmWKReview.cs</DependentUpon>
     </Compile>
     <Compile Include="WaniKani\frmWKLookup.cs">
       <SubType>Form</SubType>
@@ -119,11 +125,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WaniKani\frmWaniKani.ja.resx">
-      <DependentUpon>frmWaniKani.cs</DependentUpon>
+    <EmbeddedResource Include="WaniKani\frmWKReview.ja.resx">
+      <DependentUpon>frmWKReview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WaniKani\frmWaniKani.resx">
-      <DependentUpon>frmWaniKani.cs</DependentUpon>
+    <EmbeddedResource Include="WaniKani\frmWKReview.resx">
+      <DependentUpon>frmWKReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaniKani\frmWKLookup.resx">
       <DependentUpon>frmWKLookup.cs</DependentUpon>

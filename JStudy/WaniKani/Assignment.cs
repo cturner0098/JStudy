@@ -22,13 +22,35 @@ namespace JStudy.WaniKani
             return GetJsonData(endPoint, queryParameters);
         }
 
-        public static string GetAvailableAssignments()
+        public static string GetAvailableReviews()
         {
             // Create parameters 
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("immediately_available_for_review", "");
-            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "immediately_available_for_review", "" },
+                { "subject_types", Properties.Settings.Default.StudyTypes }
+            };
 
+            // Fetch assignments
+            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
+
+            var availableSubjectIds =
+                from id in assignments["data"].Children()["data"]
+                select (int)id["subject_id"];
+
+            // Create List of Subject Ids
+            var subjectJoin = string.Join(",", availableSubjectIds);
+            return subjectJoin;
+        }
+
+        public static string GetAvailableLessons()
+        {
+            // Create parameters 
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "unlocked", "false" },
+                { "subject_types", Properties.Settings.Default.StudyTypes }
+            };
 
             // Fetch assignments
             var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));

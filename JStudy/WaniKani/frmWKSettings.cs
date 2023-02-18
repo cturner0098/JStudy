@@ -29,7 +29,15 @@ namespace JStudy.WaniKani
             Properties.Settings.Default.APIKey = txtAPIKey.Text;
             Properties.Settings.Default.Save();
 
-            if(clbStudyTypes.Items.Count != 0)
+            if(rdbAssignments.Checked)
+            {
+                Properties.Settings.Default.LessonType = LessonType.Assignment;
+            } else if(rdbReviews.Checked) 
+            {
+                Properties.Settings.Default.LessonType = LessonType.Review;
+            }
+
+            if (clbStudyTypes.Items.Count != 0)
             {
                 this.Close();
             }

@@ -40,7 +40,7 @@ namespace JStudy
         private void btnWaniKani_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmWaniKani wkForm = new frmWaniKani();
+            frmWKReview wkForm = new frmWKReview();
             wkForm.Show();    
         }
     }

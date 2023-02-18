@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblStudyType = new System.Windows.Forms.Label();
             this.clbStudyTypes = new System.Windows.Forms.CheckedListBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtAPIKey = new System.Windows.Forms.TextBox();
             this.lblAPIKey = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.rdbReviews = new System.Windows.Forms.RadioButton();
+            this.rdbAssignments = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // lblStudyType
@@ -58,7 +62,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(12, 119);
+            this.btnSave.Location = new System.Drawing.Point(12, 142);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(182, 23);
             this.btnSave.TabIndex = 2;
@@ -68,7 +72,7 @@
             // 
             // txtAPIKey
             // 
-            this.txtAPIKey.Location = new System.Drawing.Point(12, 93);
+            this.txtAPIKey.Location = new System.Drawing.Point(12, 116);
             this.txtAPIKey.Name = "txtAPIKey";
             this.txtAPIKey.Size = new System.Drawing.Size(182, 20);
             this.txtAPIKey.TabIndex = 3;
@@ -76,17 +80,41 @@
             // lblAPIKey
             // 
             this.lblAPIKey.AutoSize = true;
-            this.lblAPIKey.Location = new System.Drawing.Point(12, 77);
+            this.lblAPIKey.Location = new System.Drawing.Point(12, 100);
             this.lblAPIKey.Name = "lblAPIKey";
             this.lblAPIKey.Size = new System.Drawing.Size(45, 13);
             this.lblAPIKey.TabIndex = 4;
             this.lblAPIKey.Text = "API Key";
             // 
+            // rdbReviews
+            // 
+            this.rdbReviews.AutoSize = true;
+            this.rdbReviews.Location = new System.Drawing.Point(15, 80);
+            this.rdbReviews.Name = "rdbReviews";
+            this.rdbReviews.Size = new System.Drawing.Size(66, 17);
+            this.rdbReviews.TabIndex = 5;
+            this.rdbReviews.TabStop = true;
+            this.rdbReviews.Text = "Reviews";
+            this.rdbReviews.UseVisualStyleBackColor = true;
+            // 
+            // rdbAssignments
+            // 
+            this.rdbAssignments.AutoSize = true;
+            this.rdbAssignments.Location = new System.Drawing.Point(110, 80);
+            this.rdbAssignments.Name = "rdbAssignments";
+            this.rdbAssignments.Size = new System.Drawing.Size(84, 17);
+            this.rdbAssignments.TabIndex = 6;
+            this.rdbAssignments.TabStop = true;
+            this.rdbAssignments.Text = "Assignments";
+            this.rdbAssignments.UseVisualStyleBackColor = true;
+            // 
             // frmWKSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 148);
+            this.ClientSize = new System.Drawing.Size(206, 173);
+            this.Controls.Add(this.rdbAssignments);
+            this.Controls.Add(this.rdbReviews);
             this.Controls.Add(this.lblAPIKey);
             this.Controls.Add(this.txtAPIKey);
             this.Controls.Add(this.btnSave);
@@ -107,5 +135,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtAPIKey;
         private System.Windows.Forms.Label lblAPIKey;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.RadioButton rdbReviews;
+        private System.Windows.Forms.RadioButton rdbAssignments;
     }
 }
