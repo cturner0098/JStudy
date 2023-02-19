@@ -16,10 +16,10 @@ namespace JStudy.WaniKani
         public string Character { get; set; }
         public List<String> Meanings { get; set; }
         public List<String> Readings { get; set; }
-
+        public string Mneumonic { get; set; }
         static string endPoint = "https://api.wanikani.com/v2/subjects";
 
-        public Subject(int id, string @object, int level, string character, List<String> meanings, List<String>? readings)
+        public Subject(int id, string @object, int level, string character, List<String> meanings, List<String>? readings, string? mneumonic)
         {
             Id = id;
             Object = @object;
@@ -27,6 +27,7 @@ namespace JStudy.WaniKani
             Character = character;
             Meanings = meanings;
             Readings = readings;
+            Mneumonic = mneumonic;
         }
 
         public static string GetAllSubjects(Dictionary<string, string>? queryParameters)
@@ -68,10 +69,10 @@ namespace JStudy.WaniKani
                     from readings in data["data"]["readings"]
                     select (string)readings["reading"];
 
-                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], character, meaningList.ToList<string>(), readingList.ToList<string>()));
+                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], character, meaningList.ToList<string>(), readingList.ToList<string>(), mneumonic: (string)data["data"]["reading_mnemonic"]));
                 } catch(Exception ex)
                 {
-                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], character, meaningList.ToList<string>(), null));
+                    subjectList.Add(new Subject((int)data["id"], (string)data["object"], (int)data["data"]["level"], character, meaningList.ToList<string>(), null, mneumonic: (string)data["data"]["meaning_mnemonic"]));
                 }
                 
 
