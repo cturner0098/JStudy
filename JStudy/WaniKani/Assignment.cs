@@ -64,10 +64,36 @@ namespace JStudy.WaniKani
             return subjectJoin;
         }
 
-        public static int GetAvailableAssignmentCount()
+        public static int GetAvailableReviewCount()
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("immediately_available_for_review", "");
+            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
+
+            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
+            var availableReviews = assignments
+                .Root
+                .SelectToken("total_count");
+            return (int)availableReviews;
+        }
+
+        public static int GetAvailableLessonsCount()
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("immediately_available_for_lessons", "");
+            parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
+
+            var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
+            var availableReviews = assignments
+                .Root
+                .SelectToken("total_count");
+            return (int)availableReviews;
+        }
+
+        public static void StartAssignment(int id)
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("immediately_available_for_lessons", "");
             parameters.Add("subject_types", Properties.Settings.Default.StudyTypes);
 
             var assignments = JObject.Parse(Assignment.GetAllAssignments(parameters));
