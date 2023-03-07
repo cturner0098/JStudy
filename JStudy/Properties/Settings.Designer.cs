@@ -49,18 +49,6 @@ namespace JStudy.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool WKSettings {
-            get {
-                return ((bool)(this["WKSettings"]));
-            }
-            set {
-                this["WKSettings"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public global::JStudy.AssignmentType AssignmentType {
             get {

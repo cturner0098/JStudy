@@ -34,7 +34,7 @@
             this.lblSubjectType = new System.Windows.Forms.Label();
             this.Next = new System.Windows.Forms.Button();
             this.rtbMeaningMneumonic = new System.Windows.Forms.RichTextBox();
-            this.rtb = new System.Windows.Forms.RichTextBox();
+            this.rtbReadingMneumonic = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lblSlug
@@ -95,20 +95,20 @@
             this.rtbMeaningMneumonic.TabIndex = 7;
             this.rtbMeaningMneumonic.Text = "";
             // 
-            // rtb
+            // rtbReadingMneumonic
             // 
-            this.rtb.Location = new System.Drawing.Point(12, 179);
-            this.rtb.Name = "rtb";
-            this.rtb.Size = new System.Drawing.Size(295, 87);
-            this.rtb.TabIndex = 8;
-            this.rtb.Text = "";
+            this.rtbReadingMneumonic.Location = new System.Drawing.Point(12, 179);
+            this.rtbReadingMneumonic.Name = "rtbReadingMneumonic";
+            this.rtbReadingMneumonic.Size = new System.Drawing.Size(295, 87);
+            this.rtbReadingMneumonic.TabIndex = 8;
+            this.rtbReadingMneumonic.Text = "";
             // 
             // WaniKaniLesson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 304);
-            this.Controls.Add(this.rtb);
+            this.Controls.Add(this.rtbReadingMneumonic);
             this.Controls.Add(this.rtbMeaningMneumonic);
             this.Controls.Add(this.Next);
             this.Controls.Add(this.lblSubjectType);
@@ -131,6 +131,6 @@
         private System.Windows.Forms.Label lblSubjectType;
         private System.Windows.Forms.Button Next;
         private System.Windows.Forms.RichTextBox rtbMeaningMneumonic;
-        private System.Windows.Forms.RichTextBox rtb;
+        private System.Windows.Forms.RichTextBox rtbReadingMneumonic;
     }
 }

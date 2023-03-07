@@ -45,8 +45,6 @@ namespace JStudy.WaniKani
                 MessageBox.Show(webEx.Message);
                 WaniKaniSetting wkSettings = new WaniKaniSetting();
                 wkSettings.ShowDialog();
-                Properties.Settings.Default.WKSettings = true;
-                Properties.Settings.Default.Save();
                 GetJsonData(endPoint, queryParameters);
             }
             

@@ -17,7 +17,7 @@ namespace JStudy.WaniKani
             InitializeComponent();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
             List<String> studyTypes = new List<string>();
             foreach (Object item in clbStudyTypes.CheckedItems)
@@ -38,10 +38,21 @@ namespace JStudy.WaniKani
                 Properties.Settings.Default.AssignmentType = AssignmentType.Review;
             }
 
-            if (clbStudyTypes.Items.Count != 0)
+            if (Properties.Settings.Default.AssignmentType == AssignmentType.Lesson)
             {
-                this.Close();
+                
+                WaniKaniLesson wkForm = new WaniKaniLesson();
+                wkForm.Show();
+                this.Hide();
             }
+            else if (Properties.Settings.Default.AssignmentType == AssignmentType.Review)
+            {
+                this.Hide();
+                WaniKaniReview wkForm = new WaniKaniReview();
+                wkForm.Show();
+            }
+
+            
         }
 
         private void frmWKSettings_Load(object sender, EventArgs e)

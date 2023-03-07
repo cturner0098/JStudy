@@ -22,6 +22,11 @@ namespace JStudy.WaniKani
             return GetJsonData(endPoint, queryParameters);
         }
 
+        public static string StartAssignment(int id)
+        {
+            return GetJsonData($"{endPoint}/{id}/start", null);
+        }
+
         public static string GetAvailableReviews()
         {
             // Create parameters 
@@ -90,7 +95,7 @@ namespace JStudy.WaniKani
             return (int)availableReviews;
         }
 
-        public static int StartAssignment(int id)
+        /*public static int StartAssignment(int id)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("immediately_available_for_lessons", "");
@@ -101,6 +106,6 @@ namespace JStudy.WaniKani
                 .Root
                 .SelectToken("total_count");
             return (int)availableReviews;
-        }
+        }*/
     }
 }

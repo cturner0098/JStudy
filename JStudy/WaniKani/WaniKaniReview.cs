@@ -47,13 +47,11 @@ namespace JStudy.WaniKani
 
         private void frmWaniKani_Load(object sender, EventArgs e)
         {
-            if (!Properties.Settings.Default.WKSettings)
+            if (Properties.Settings.Default.APIKey == default || Properties.Settings.Default.StudyTypes == default)
             {
                 WaniKaniSetting wkSettings = new WaniKaniSetting();
                 this.Hide();
                 wkSettings.ShowDialog();
-                Properties.Settings.Default.WKSettings = true;
-                Properties.Settings.Default.Save();
             }
 
             LoadNextSubject();
@@ -205,8 +203,6 @@ namespace JStudy.WaniKani
             WaniKaniSetting wkSettings = new WaniKaniSetting();
             this.Hide();
             wkSettings.ShowDialog();
-            Properties.Settings.Default.WKSettings = true;
-            Properties.Settings.Default.Save();
             RefreshForm();
             this.Show();
         }

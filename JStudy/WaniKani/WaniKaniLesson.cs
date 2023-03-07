@@ -16,16 +16,14 @@ namespace JStudy.WaniKani
         {
             InitializeComponent();
         }
-
+        private int currentSubjectId;
         private void frmWKLesson_Load(object sender, EventArgs e)
         {
-            if (!Properties.Settings.Default.WKSettings)
+            if (Properties.Settings.Default.APIKey == default || Properties.Settings.Default.StudyTypes == default)
             {
                 WaniKaniSetting wkSettings = new WaniKaniSetting();
                 this.Hide();
                 wkSettings.ShowDialog();
-                Properties.Settings.Default.WKSettings = true;
-                Properties.Settings.Default.Save();
             }
 
             LoadNextSubject();
@@ -61,11 +59,15 @@ namespace JStudy.WaniKani
             lblSlug.Text = subjectList[0].Character;
             lblSubjectType.Text = subjectList[0].Object;
             lblReading.Text = string.Join(", ", subjectList[0].Meanings);
-            rtbMeaningMneumonic.Text = subjectList[0].Mneumonic;
+            rtbMeaningMneumonic.Text = subjectList[0].MeaningMneumonic;
+            rtbReadingMneumonic.Text = subjectList[0].ReadingMneumonic;
+            currentSubjectId = subjectList[0].Id;
+
         }
 
         private void Next_Click(object sender, EventArgs e)
         {
+            Assignment.StartAssignment(currentSubjectId);
             LoadNextSubject();
         }
     }
