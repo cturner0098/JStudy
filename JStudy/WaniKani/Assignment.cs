@@ -90,7 +90,7 @@ namespace JStudy.WaniKani
             return (int)availableReviews;
         }
 
-        public static void StartAssignment(int id)
+        public static int StartAssignment(int id)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("immediately_available_for_lessons", "");
